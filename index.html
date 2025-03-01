@@ -7,6 +7,10 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+
+
   <style>
     body{
       width: 100px;
@@ -33,8 +37,15 @@
     }
   </style>
 </head>
+
+
+
 <body>
   <div id="root"></div>
+
+
+
+
   <script type="text/babel">
 
     function Card({suit_dhruv, card_value, is_picked, onClick}) {
@@ -46,32 +57,61 @@
     }
 
 
+
+
+    function All_buttons({resetDhruvDeck}) {
+      return (
+        <div>
+          <button>Deal 5</button>
+          <button>Deal 7</button>
+          <button onClick={resetDhruvDeck}>Reset</button>
+          <button>Toss</button>
+          <button>Regroup</button>
+          <button>wildcard</button>
+        </div>
+      )
+    }
+
+
+
+
+
     function DeckOfDiffCards() {
+
       const suits = ["♥", "♦", "♣", "♠"];
       const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
-      const [deck, setDeck] = React.UsetState([]);
-      const [alreadyDrawnCards, setAlreadyDrawnCards] = React.UsetState([]);
-      const [handPickedcards, setHandPickedCards] = React.UsetState(null);
+      const [deck, setDeck] = React.useState([]);
+      const [alreadyDrawnCards, setAlreadyDrawnCards] = React.useState([]);
+      const [handPickedcards, setHandPickedCards] = React.useState(null);
+
+
+
 
 
       const resetDhruvDeck = () => {
         let newDhruvDeck = [];
-        suits.forEach(suit => values.forEach(value => newDhruvDeck.push({suit, value})));
+        suits.forEach(suit => values.forEach(card_value => newDhruvDeck.push({suit, card_value})));
         setDeck(newDhruvDeck);
         setAlreadyDrawnCards([]);
         setHandPickedCards(null);
       };
 
-      Reack.useEffect(() => {
+
+      React.useEffect(() => {
         resetDhruvDeck();
       },[]);
+
+
+
+
+
 
       return (
         
         <div>
           <div>
-            {alreadyDrawnCards.map((card, index) => (
+            {deck.map((card, index) => (
               <Card 
                 key={index}
                 suit={card.suit_dhruv}
@@ -81,15 +121,22 @@
             ))}
             
           </div>
+          <All_buttons 
+            resetDhruvDeck={resetDhruvDeck}
+          />
         </div>
       )
     }
+
+
+
+    
 
     function App() {
       return (
         <div>
           <h1>DECK OF CARDS</h1>
-          
+          <DeckOfDiffCards />
         </div>
       )
     }
