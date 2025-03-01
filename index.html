@@ -54,10 +54,21 @@
       const [alreadyDrawnCards, setAlreadyDrawnCards] = React.UsetState([]);
       const [handPickedcards, setHandPickedCards] = React.UsetState(null);
 
+
       return (
         
         <div>
-          <div><Card /></div>
+          <div>
+            {alreadyDrawnCards.map((card, index) => (
+              <Card 
+                key={index}
+                suit={card.suit_dhruv}
+                is_picked={handPickedcards===index}
+                
+              />
+            ))}
+            
+          </div>
         </div>
       )
     }
@@ -66,6 +77,7 @@
       return (
         <div>
           <h1>DECK OF CARDS</h1>
+          
         </div>
       )
     }
