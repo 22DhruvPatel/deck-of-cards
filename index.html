@@ -125,6 +125,19 @@
       };
 
 
+      const dhruv_dealCards = (num) => {
+        resetDhruvDeck();
+        let hand = [];
+        for (let i = 0; i < num; i++) {
+          let random_Index = Math.floor(Math.random() * deck.length);
+          let newCard = deck[random_Index];
+          deck.splice(random_Index, 1);
+          hand.push(newCard);
+        }
+          setAlreadyDrawnCards(hand);
+        };
+
+
 
 
 
@@ -147,6 +160,7 @@
             
           </div>
           <All_buttons 
+            dhruv_dealCards={dhruv_dealCards}
             resetDhruvDeck={resetDhruvDeck}
           />
         </div>
