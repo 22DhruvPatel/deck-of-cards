@@ -55,6 +55,18 @@
       const [handPickedcards, setHandPickedCards] = React.UsetState(null);
 
 
+      const resetDhruvDeck = () => {
+        let newDhruvDeck = [];
+        suits.forEach(suit => values.forEach(value => newDhruvDeck.push({suit, value})));
+        setDeck(newDhruvDeck);
+        setAlreadyDrawnCards([]);
+        setHandPickedCards(null);
+      };
+
+      Reack.useEffect(() => {
+        resetDhruvDeck();
+      },[]);
+
       return (
         
         <div>
