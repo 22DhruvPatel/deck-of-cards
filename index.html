@@ -116,11 +116,14 @@
 
 
 
+
+
       return (
         
         <div>
+          <div className="deck" onClick={lets_drawCard}>{deck.length === 0 ? "No cards remaining" : "Deck"}</div>
           <div>
-            {deck.map((card, index) => (
+            {alreadyDrawnCards.map((card, index) => (
               <Card 
                 key={index}
                 suit={card.suit_dhruv}
