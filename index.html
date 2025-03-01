@@ -24,9 +24,11 @@
   <div id="root"></div>
   <script type="text/babel">
 
-    function Card() {
+    function Card({suit_dhruv, card_value, is_picked, onClick}) {
       return (
-        <div>Card</div>
+        <div className={`card ${is_picked ? "picked": ""}`} onClick={onClick}>
+          {card_value} {suit_dhruv}
+        </div>
       )
     }
 
