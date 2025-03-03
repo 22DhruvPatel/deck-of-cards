@@ -78,8 +78,8 @@
           <button>Deal 5</button>
           <button>Deal 7</button>
           <button onClick={resetDhruvDeck}>Reset</button>
-          <button>Toss</button>
-          <button>Regroup</button>
+          <button onClick={tossingTheCard}>Toss</button>
+          <button onClick={shuffleTheCards}>Regroup</button>
           <button>wildcard</button>
         </div>
       )
@@ -159,6 +159,13 @@
       }
 
 
+
+      const shuffleTheCards = () => {
+        let shuffled = [...alreadyDrawnCards].sort(() => Math.random() - 0.5);
+        setAlreadyDrawnCards(shuffled);
+      };
+
+
       
 
 
@@ -187,6 +194,7 @@
             dhruv_dealCards={dhruv_dealCards}
             resetDhruvDeck={resetDhruvDeck}
             tossingTheCard={tossingTheCard}
+            shuffleTheCards={shuffleTheCards}
           />
         </div>
       )
