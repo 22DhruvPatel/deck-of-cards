@@ -25,15 +25,21 @@
       width: 80px;
       height: 120px;
       border: 1px solid black;
+      border-radius: 10px;
       margin: 5px;
       text-align: center;
       line-height: 120px;
       font-size: 20px;
+      background-color: white;
+
     }
     button {
       margin: 10px;
       padding: 10px;
       font-size: 16px;
+    }
+    .picked{
+      border: 3px solid red;
     }
     .deck {
       width: 100px;
@@ -126,7 +132,7 @@
 
 
       const dhruv_dealCards = (num) => {
-        resetDhruvDeck();
+        //resetDhruvDeck();
         let fresh_deck = [...deck];
         let hand = [];
         for (let i = 0; i < num; i++) {
@@ -154,7 +160,7 @@
 
       const tossingTheCard = () => {
         if (handPickedcards !== null) {
-          setAlreadyDrawnCards(alreadyDrawnCards.filter((_, index) => index != handPickedcards));
+          setAlreadyDrawnCards(alreadyDrawnCards.filter((_, index) => index !== handPickedcards));
           setHandPickedCards(null);
         }
       }
@@ -172,7 +178,7 @@
       const wild_Card = () => {
         let any_random_suit = suits[Math.floor(Math.random() * suits.length)];
         let any_random_values = values[Math.floor(Math.random() * values.length)];
-        setAlreadyDrawnCards([...alreadyDrawnCards, {suits: any_random_suit, values: any_random_values}])
+        setAlreadyDrawnCards([...alreadyDrawnCards, {suit: any_random_suit, card_value: any_random_values}])
       };
 
 
