@@ -72,7 +72,7 @@
 
 
 
-    function All_buttons({dhruv_dealCards, resetDhruvDeck, tossingTheCard, shuffleTheCards}) {
+    function All_buttons({dhruv_dealCards, resetDhruvDeck, tossingTheCard, shuffleTheCards, wild_Card}) {
       return (
         <div>
           <button onClick={() => dhruv_dealCards(5)}>Deal 5</button>
@@ -80,7 +80,7 @@
           <button onClick={resetDhruvDeck}>Reset</button>
           <button onClick={tossingTheCard}>Toss</button>
           <button onClick={shuffleTheCards}>Regroup</button>
-          <button>wildcard</button>
+          <button onClick={wild_Card}>wildcard</button>
         </div>
       )
     }
@@ -169,6 +169,11 @@
 
       
 
+      const wild_Card = () => {
+        let any_random_suit = suits[Math.floor(Math.random() * suits.length)];
+        let any_random_values = values[Math.floor(Math.random() * values.length)];
+        setAlreadyDrawnCards([...alreadyDrawnCards, {suits: any_random_suit, values: any_random_values}])
+      };
 
 
 
@@ -197,6 +202,7 @@
             resetDhruvDeck={resetDhruvDeck}
             tossingTheCard={tossingTheCard}
             shuffleTheCards={shuffleTheCards}
+            wild_Card={wild_Card}
           />
         </div>
       )
