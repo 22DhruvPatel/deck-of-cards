@@ -150,6 +150,15 @@
       };
 
 
+
+      const tossingTheCard = () => {
+        if (handPickedcards != null) {
+          setAlreadyDrawnCards(alreadyDrawnCards.filter((_, index) => index != handPickedcards));
+          setHandPickedCards(null);
+        }
+      }
+
+
       
 
 
@@ -177,6 +186,7 @@
           <All_buttons 
             dhruv_dealCards={dhruv_dealCards}
             resetDhruvDeck={resetDhruvDeck}
+            tossingTheCard={tossingTheCard}
           />
         </div>
       )
