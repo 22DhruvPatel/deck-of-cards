@@ -127,6 +127,7 @@
 
       const dhruv_dealCards = (num) => {
         resetDhruvDeck();
+        let fresh_deck = [...deck];
         let hand = [];
         for (let i = 0; i < num; i++) {
           let random_Index = Math.floor(Math.random() * deck.length);
@@ -152,7 +153,7 @@
 
 
       const tossingTheCard = () => {
-        if (handPickedcards != null) {
+        if (handPickedcards !== null) {
           setAlreadyDrawnCards(alreadyDrawnCards.filter((_, index) => index != handPickedcards));
           setHandPickedCards(null);
         }
@@ -183,9 +184,10 @@
             {alreadyDrawnCards.map((card, index) => (
               <Card 
                 key={index}
-                suit={card.suit_dhruv}
+                suit={card.suit}
+                card_value={card.card_value}
                 is_picked={handPickedcards===index}
-                onClick={lets_pickCard(index)}
+                onClick={() => lets_pickCard(index)}
               />
             ))}
             
