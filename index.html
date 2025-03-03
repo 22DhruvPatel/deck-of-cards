@@ -135,7 +135,22 @@
           hand.push(newCard);
         }
           setAlreadyDrawnCards(hand);
-        };
+      };
+
+
+      const lets_pickCard = (index) => {
+        if (handPickedcards === null) {
+          setHandPickedCards(index);
+        } else {
+          let freshCards = [...alreadyDrawnCards];
+          [freshCards[handPickedcards], freshCards[index]] = [freshCards[index], freshCards[handPickedcards]];
+          setAlreadyDrawnCards(freshCards);
+          setHandPickedCards(null);
+        }
+      };
+
+
+      
 
 
 
@@ -154,7 +169,7 @@
                 key={index}
                 suit={card.suit_dhruv}
                 is_picked={handPickedcards===index}
-                // onClick={}
+                onClick={lets_pickCard(index)}
               />
             ))}
             
