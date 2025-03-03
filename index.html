@@ -72,11 +72,11 @@
 
 
 
-    function All_buttons({resetDhruvDeck}) {
+    function All_buttons({dhruv_dealCards, resetDhruvDeck, tossingTheCard, shuffleTheCards}) {
       return (
         <div>
-          <button>Deal 5</button>
-          <button>Deal 7</button>
+          <button onClick={() => dhruv_dealCards(5)}>Deal 5</button>
+          <button onClick={() => dhruv_dealCards(7)}>Deal 7</button>
           <button onClick={resetDhruvDeck}>Reset</button>
           <button onClick={tossingTheCard}>Toss</button>
           <button onClick={shuffleTheCards}>Regroup</button>
